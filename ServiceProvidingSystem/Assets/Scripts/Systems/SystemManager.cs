@@ -5,6 +5,8 @@ using UnityEngine;
 public class SystemManager : MonoBehaviour
 {
     public DetailUI WorkerDetail;
+    public DetailUI CustomerDetail;
+    public DetailUI ProjectDetail;
 
     public string curAccount;
     public UserType curUserType;
@@ -62,6 +64,17 @@ public class SystemManager : MonoBehaviour
     {
         WorkerDetail.Show(data);
     }
+
+    public void ShowCustomDetail(List<string> data)
+    {
+        CustomerDetail.Show(data);
+    }    
+
+    public void ShowProjectDetail(List<string> data)
+    {
+        ProjectDetail.Show(data);
+    }
+
     public void Close()
     {
         Application.Quit();

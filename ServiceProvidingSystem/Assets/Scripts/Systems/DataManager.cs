@@ -147,6 +147,39 @@ public class DataManager : MonoBehaviour
         return m_databaseManager.Select("exec FindWorkerByTag '" + tag + "';");
     }
 
+    public DataSet FindCustomerByID(string id)
+    {
+        return m_databaseManager.Select("exec FindCustomerByID '" + id + "';");
+    }
+
+    public DataSet FindCustomerByName(string name)
+    {
+        return m_databaseManager.Select("exec FindCustomerByName '" + name + "';");
+    }
+
+    public DataSet FindProjectByID(string id)
+    {
+        return m_databaseManager.Select("exec FindProjectByID '" + id + "';");
+    }
+    public DataSet FindProjectByName(string name)
+    {
+        return m_databaseManager.Select("exec FindProjectByName '" + name + "';");
+    }
+    public DataSet FindProjectByCTno(string ctno)
+    {
+        return m_databaseManager.Select("exec FindProjectByCTno '" + ctno + "';");
+    }
+
+    public DataSet FindProjectByFWno(string fwno)
+    {
+        return m_databaseManager.Select("exec FindProjectByFWno '" + fwno + "';");
+    }
+
+    public DataSet FindProjectByTag(string tag)
+    {
+        return m_databaseManager.Select("exec FindProjectByTag '" + tag + "';");
+    }
+
     public void Close()
     {
         if (m_databaseManager.isConnectSuccess)
