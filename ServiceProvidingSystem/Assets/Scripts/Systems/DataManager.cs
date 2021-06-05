@@ -27,6 +27,8 @@ public class DataManager : MonoBehaviour
     private void Start()
     {
         m_databaseManager = DatabaseManager.GetInstance();
+        if (!m_databaseManager.Connect())
+            Debug.LogError("Connect Error");
     }
 
     public bool Connect()
@@ -130,7 +132,20 @@ public class DataManager : MonoBehaviour
 
     }
 
+    public DataSet FindWorkerByID(string id)
+    {
+        return m_databaseManager.Select("exec FindWorkerByID '" + id + "';");
+    }
 
+    public DataSet FindWorkerByName(string name)
+    {
+        return m_databaseManager.Select("exec FindWorkerByName '" + name + "';");
+    }
+
+    public DataSet FindWorkerByTag(string tag)
+    {
+        return m_databaseManager.Select("exec FindWorkerByTag '" + tag + "';");
+    }
 
     public void Close()
     {

@@ -42,7 +42,7 @@ public class SignUpUI_Customer : MonoBehaviour
 
     public void Click_Signin()
     {
-        SystemManager.GetInstance().ToSignIn();
+        //SystemManager.GetInstance().ToSignIn();
     }
 
     public void Click_Exit()

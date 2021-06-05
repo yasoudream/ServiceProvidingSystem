@@ -28,7 +28,7 @@ public class SignInUI : MonoBehaviour
         string message;
         if (DataManager.GetInstance().SignIn(Input_Account.text, Input_Password.text, SystemManager.ToUserType(Input_UserType.value), out message))
         {
-            SystemManager.GetInstance().SigninSuccess();
+            //SystemManager.GetInstance().SigninSuccess();
         }
         else
         {
@@ -38,12 +38,12 @@ public class SignInUI : MonoBehaviour
 
     public void Click_SignUp_FreeWorker()
     {
-        SystemManager.GetInstance().ToSignUp_FreeWorker();
+        //SystemManager.GetInstance().ToSignUp_FreeWorker();
     }
 
     public void Click_SignUp_Customer()
     {
-        SystemManager.GetInstance().ToSignUp_Customer();
+        //SystemManager.GetInstance().ToSignUp_Customer();
     }
 
     public void Click_Quit()

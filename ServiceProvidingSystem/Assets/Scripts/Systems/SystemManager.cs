@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class SystemManager : MonoBehaviour
 {
-    public GameObject mainUIobj_FreeWorker;
-    public GameObject mainUIobj_Customer;
-    public GameObject mainUIobj_Manager;
-    public GameObject signInUIobj;
-    public GameObject signUpUIobj_FreeWorker;
-    public GameObject signUpUIobj_Customer;
+    public DetailUI WorkerDetail;
 
     public string curAccount;
     public UserType curUserType;
@@ -27,42 +22,46 @@ public class SystemManager : MonoBehaviour
             instance = this;
     }
 
-    public void SigninSuccess()
-    {
-        switch (curUserType)
-        {
-            case UserType.FreeWorker:
-                mainUIobj_FreeWorker.SetActive(true);
-                break;
-            case UserType.Customer:
-                mainUIobj_Customer.SetActive(true);
-                break;
-            case UserType.Manager:
-                mainUIobj_Manager.SetActive(true);
-                break;
-        }
-        signInUIobj.SetActive(false);
-    }
+    //public void SigninSuccess()
+    //{
+    //    switch (curUserType)
+    //    {
+    //        case UserType.FreeWorker:
+    //            mainUIobj_FreeWorker.SetActive(true);
+    //            break;
+    //        case UserType.Customer:
+    //            mainUIobj_Customer.SetActive(true);
+    //            break;
+    //        case UserType.Manager:
+    //            mainUIobj_Manager.SetActive(true);
+    //            break;
+    //    }
+    //    signInUIobj.SetActive(false);
+    //}
 
-    public void ToSignUp_FreeWorker()
-    {
-        signInUIobj.SetActive(false);
-        signUpUIobj_FreeWorker.SetActive(true);
-    }
+    //public void ToSignUp_FreeWorker()
+    //{
+    //    signInUIobj.SetActive(false);
+    //    signUpUIobj_FreeWorker.SetActive(true);
+    //}
 
-    public void ToSignUp_Customer()
-    {
-        signInUIobj.SetActive(false);
-        signUpUIobj_Customer.SetActive(true);
-    }
+    //public void ToSignUp_Customer()
+    //{
+    //    signInUIobj.SetActive(false);
+    //    signUpUIobj_Customer.SetActive(true);
+    //}
 
-    public void ToSignIn()
-    {
-        signInUIobj.SetActive(true);
-        signUpUIobj_Customer.SetActive(false);
-        signUpUIobj_FreeWorker.SetActive(false);
-    }
+    //public void ToSignIn()
+    //{
+    //    signInUIobj.SetActive(true);
+    //    signUpUIobj_Customer.SetActive(false);
+    //    signUpUIobj_FreeWorker.SetActive(false);
+    //}
 
+    public void ShowWorkerDetail(List<string> data)
+    {
+        WorkerDetail.Show(data);
+    }
     public void Close()
     {
         Application.Quit();
