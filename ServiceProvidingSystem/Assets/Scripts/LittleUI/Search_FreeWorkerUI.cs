@@ -16,11 +16,13 @@ public class Search_FreeWorkerUI : MonoBehaviour
 
     public void Click_Search()
     {
+        //输入检测
         if (searchInfo.text.Length <= 0)
         {
             message.text = "请输入数据";
             return;
         }
+        //判断分类
         DataSet datas;
         if (searchType.value == 0)
             datas = DataManager.GetInstance().FindWorkerByID(searchInfo.text);
@@ -44,7 +46,7 @@ public class Search_FreeWorkerUI : MonoBehaviour
             return;
         }
 
-
+        //逐个补充部件
         for (int i = 0; i < datas.Tables[0].Rows.Count; i++)
         {
             GameObject obj = Instantiate(workerDataPrefab);

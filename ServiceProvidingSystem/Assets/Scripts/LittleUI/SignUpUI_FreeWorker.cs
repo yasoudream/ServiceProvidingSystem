@@ -12,6 +12,7 @@ public class SignUpUI_FreeWorker : MonoBehaviour
     public InputField Input_Phone;
     public Text SignUpMessage;
 
+    //注册点击事件
     public void Click_Signup()
     {
         if (Input_Account.text.Length <= 0)
@@ -56,7 +57,7 @@ public class SignUpUI_FreeWorker : MonoBehaviour
     {
         //SystemManager.GetInstance().ToSignIn();
     }
-
+    //退出事件
     public void Click_Exit()
     {
         SystemManager.GetInstance().Close();

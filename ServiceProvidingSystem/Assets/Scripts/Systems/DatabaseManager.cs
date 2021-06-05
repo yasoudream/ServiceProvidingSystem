@@ -27,6 +27,10 @@ public class DatabaseManager
     public bool isConnectSuccess = false;       //连接状态
     private SqlConnection sqlConnection;        //连接对象
 
+    /// <summary>
+    /// 连接数据库
+    /// </summary>
+    /// <returns></returns>
     public bool Connect()
     {
         sqlConnection = new SqlConnection(connStr);
