@@ -2,22 +2,20 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using UnityEngine;
 using System;
 
 public class DatabaseManager
 {
+    //单例模式
     private static DatabaseManager instance;
     public static DatabaseManager GetInstance()
     {
+        if (instance == null)
+            instance = new DatabaseManager();
         return instance;
     }
 
-    //懒汉单例
-    static DatabaseManager()
-    {
-        if (instance == null)
-            instance = new DatabaseManager();
-    }
 
     //连接字符串
     private static readonly string connStr = "Data Source=127.0.0.1,1433;" +
@@ -44,6 +42,7 @@ public class DatabaseManager
         {
             //DebugLog.instance.Log("Failed");
             //DebugLog.instance.Log(ex.ToString());
+            Debug.LogError(ex.ToString());
             return false;
         }
         return true;
@@ -53,6 +52,7 @@ public class DatabaseManager
     {
         if (isConnectSuccess)
             sqlConnection.Close();
+        isConnectSuccess = false;
     }
 
     public DataSet Select(string sqlcommand)
@@ -91,50 +91,11 @@ public class DatabaseManager
         }
         catch (Exception ex)
         {
+            Debug.LogError(ex.ToString());
             return false;
         }
         return true;
     }
 
-    /// <summary>
-    /// 获得正确字符串
-    /// </summary>
-    /// <param name="data"></param>
-    /// <returns></returns>
-    public static string GetTrueString(string data)
-    {
-        int index = -1;
-        index = data.IndexOf(' ');
-        if (index < 0)
-            return data;
-        return data.Substring(0, index);
-    }
 
-
-    /// <summary>
-    /// Dataset是否为空
-    /// </summary>
-    /// <param name="dataset"></param>
-    /// <returns></returns>
-    public static bool CheckExists(DataSet dataset)
-    {
-        return dataset.Tables[0].Rows.Count > 0;
-    }
-
-    /// <summary>
-    /// 检查手机号合理性
-    /// </summary>
-    /// <param name="num"></param>
-    /// <returns></returns>
-    public static bool CheckPhone(string num)
-    {
-        if (num.Length != 11)
-            return false;
-        foreach (char c in num)
-        {
-            if (c > '9' || c < '0')
-                return false;
-        }
-        return true;
-    }
 }
